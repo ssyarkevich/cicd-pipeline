@@ -11,6 +11,12 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        sh 'scripts/script.sh'
+      }
+    }
+
   }
   environment {
     registry = 'ssyarkevich/test-app'
