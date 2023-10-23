@@ -3,17 +3,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        script {
-          checkout scm
-          def customImage = docker.build("${registry}:latest")
-        }
-
-      }
-    }
-
-    stage('Test') {
-      steps {
-        sh 'scripts/build.sh'
+        sh '''chmod + x scripts/build.sh
+./scripts/build.sh'''
       }
     }
 
