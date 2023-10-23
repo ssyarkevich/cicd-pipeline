@@ -8,6 +8,13 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        sh '''chmod +x scripts/test.sh
+./scripts/test.sh'''
+      }
+    }
+
   }
   environment {
     registry = 'ssyarkevich/test-app'
