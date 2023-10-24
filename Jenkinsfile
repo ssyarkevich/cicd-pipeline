@@ -18,7 +18,6 @@ pipeline {
     stage('Build docker image') {
       steps {
         script {
-          checkout scm
           def customImage = docker.build("${registry}:latest")
         }
 
