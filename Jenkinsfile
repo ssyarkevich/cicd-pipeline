@@ -25,6 +25,17 @@ pipeline {
       }
     }
 
+    stage('Publish ') {
+      steps {
+        script {
+          docker.withRegistry('', 'dockerhub-id'){
+            docker.image("${registry}:latest").push('latest')
+          }
+        }
+
+      }
+    }
+
   }
   environment {
     registry = 'ssyarkevich/test-app'
